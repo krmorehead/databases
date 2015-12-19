@@ -24,3 +24,9 @@ id          name        department
 2           pamela      2         
 3           beth        1         
 4           sunny       2   
+
+
+
+var request = 'SELECT m.message, m.user_id, m.room_id u.name FROM messages m';
+
+

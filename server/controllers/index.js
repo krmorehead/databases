@@ -5,12 +5,12 @@ module.exports = {
     get: function (req, res) {
       console.log("messages get")
       models.messages.get(req, function(data){
-        res.send(JSON.stringify(data))
+        res.end(JSON.stringify(data))
       });
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       models.messages.post(req, function(data){
-        res.send(JSON.stringify(data))
+        res.end(JSON.stringify(data))
       });
     },
 

@@ -31,6 +31,24 @@ CREATE TABLE messages (
   FOREIGN KEY(room_id) REFERENCES rooms(id),
   FOREIGN KEY(user_id) REFERENCES users(id)
 );
+/*
+for foreign id's select the name from the other list
+returning the id
+*/
+INSERT INTO rooms
+  (room_name, id)
+VALUES
+  ('lobby', 1);
+
+INSERT INTO messages
+  (message, id)
+VALUES
+  ('Hello world', 1);
+
+INSERT INTO users
+  (user_name, id)
+VALUES
+  ('Ken Byle', 1);
 
 /* Create other tables and define schemas for them here! */
 
