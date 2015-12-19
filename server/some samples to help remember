@@ -1,0 +1,26 @@
+select t.name, t.id from teachers t, departments d where t.department IN (select d.id from d where name ='psy')
+t.department = d.id and d.name = 'psy';
+
+select c.name from classes c inner join classes_students cs on (c.id = cs.classes_id ) where student_id in (select s.id from students s where s.name = "sam");
+
+
+
+CREATE TABLE teachers (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  department INTEGER,
+  FOREIGN KEY(department) REFERENCES departments(id)
+
+departments 
+id          name      
+----------  ----------
+1           cs        
+2           psy   
+
+teachers
+id          name        department
+----------  ----------  ----------
+1           fred        1         
+2           pamela      2         
+3           beth        1         
+4           sunny       2   
