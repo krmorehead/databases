@@ -14,7 +14,8 @@ module.exports = {
     get: function (res, callback) {
       connection.connect();
   
-      var request = 'SELECT m.message, m.user_id, m.room_id FROM messages m';
+      var request = 'SELECT m.message, u.user_name, r.room_name FROM messages m,users u, rooms r where (u.id = m.user_id and r.id = m.room_id);'
+      // returns message, user_name, room_name
       connection.query(request, function(err, rows, fields) {
         if (err) throw err;
         console.log('-------ROWS-------');

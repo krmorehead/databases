@@ -4,8 +4,8 @@ USE chat;
 
 CREATE TABLE rooms(
   room_name varchar(225),
-  messages_id int,
-  user_id int,
+  -- message_id int,
+  -- user_id int,
   id int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(id)
 );
@@ -13,7 +13,7 @@ CREATE TABLE rooms(
 CREATE TABLE users(
   user_name varchar(225),
   room_id int,
-  messages_id int,
+  -- message_id int,
   id int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(id),
   FOREIGN KEY(room_id) REFERENCES rooms(id)    
@@ -34,21 +34,26 @@ CREATE TABLE messages (
 /*
 for foreign id's select the name from the other list
 returning the id
+can hardcode here
 */
 INSERT INTO rooms
   (room_name, id)
 VALUES
-  ('lobby', 1);
-
-INSERT INTO messages
-  (message, id)
-VALUES
-  ('Hello world', 1);
+  ('lobby', 1),
+  ('not Lobby', 2);
 
 INSERT INTO users
-  (user_name, id)
+  (user_name, room_id, id)
 VALUES
-  ('Ken Byle', 1);
+  ('Ken Byle', 1, 1),
+  ('Byle Ken', 2, 2);
+
+INSERT INTO messages
+  (message, user_id,room_id, cid, time_stamp,id)
+VALUES
+  ('Hello world', 1, 1, 1, NOW(), 1),
+  ('Goodbye World', 2, 2, 2, NOW(), 2),
+  ('Hello again world', 1, 1, 3, NOW(), 3);
 
 /* Create other tables and define schemas for them here! */
 

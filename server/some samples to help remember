@@ -29,4 +29,7 @@ id          name        department
 
 var request = 'SELECT m.message, m.user_id, m.room_id u.name FROM messages m';
 
+var request = 'SELECT m.message, u.user_name, FROM messages m,users u where (u.id = m.user_id);
 
+//may have duplication
+SELECT m.message, u.user_name, r.room_name FROM messages m,users u, rooms r where (u.id = m.user_id and r.id = m.room_id);
