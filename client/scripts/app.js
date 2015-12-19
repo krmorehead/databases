@@ -10,7 +10,7 @@ var friends = {};
 var app = {};
 app.init = function(){};
 var messages;
-app.server = 'http://127.0.0.1:3000/classes/';
+app.server = 'http://127.0.0.1:3000/';
 
 app.send = function(message , user, roomname, tag){
   $.ajax({
@@ -33,7 +33,7 @@ app.fetch = function(){
 
   $.ajax({
     // This is the url you should use to communicate with the parse API server.
-    url: app.server + "room1",
+    url: app.server ,
     type: 'GET',
     contentType: 'application/json',
     success: function (data) {
